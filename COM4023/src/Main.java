@@ -1,12 +1,16 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         ArrayList<addSong> songList = new ArrayList<>();
+        //PRE-ADD SONGS FOR TESTING
         songList.add(new addSong("Saturday","Taylor Swift",193));
+        songList.add(new addSong("Monday","Taylor Swift",222));
+        songList.add(new addSong("Friday","Taylor Swift",3452));
+        songList.add(new addSong("Video Games","Lana Del Rey",235262));
+        songList.add(new addSong("Yellow","Mikey Smith",634637));
         //Print all the initial options and menu
         System.out.print("Welcome to the Music Player!\n");
         System.out.print("You have 5 options to choose from: \n");
