@@ -25,8 +25,23 @@ public class Main {
         while (true) {
             System.out.print("Please enter the option you would like to use: ");
             String option = scanner.nextLine();
+            //1, add file, 2, remove song, 3, print list of all songs, 4, print list of all songs ranked on number of plays
             switch (option) {
                 case "1":
+                    try {
+                        System.out.print("Please enter the song name you'd like to add: ");
+                        String songName = scanner.nextLine();
+                        System.out.print("Please enter the artist name: ");
+                        String artistName = scanner.nextLine();
+                        System.out.print("Please enter the song plays (in number): ");
+                        int songPlays = Integer.parseInt(scanner.nextLine());
+
+                        songList.add(new addSong(songName,artistName,songPlays));
+                        System.out.print("Song Successfully added!\n");
+                    }
+                    catch (Exception e) {
+                        System.out.print("Something went wrong, please try again. Select the option again\n");
+                    }
             }
         }
 
