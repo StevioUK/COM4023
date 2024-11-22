@@ -42,6 +42,17 @@ public class Main {
                     catch (Exception e) {
                         System.out.print("Something went wrong, please try again. Select the option again\n");
                     }
+
+                case "2":
+                    System.out.print("Please enter the song name you'd like to remove: ");
+
+                case "3":
+                    for (item in songList.size()) {
+                        System.out.print(song+"\n");
+                    }
+
+                case "4":
+                    System.out.print("Please enter the song name you'd like to remove: ");
             }
         }
 
