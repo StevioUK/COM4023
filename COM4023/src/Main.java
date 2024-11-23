@@ -51,15 +51,31 @@ public class Main {
                 //Case 2 (Remove file)
                 case "2":
                     //Read user input after showing list of all entries
-                    System.out.print("Please enter the song name you'd like to remove:\n");
+                    System.out.print("Please enter the song number you'd like to remove(use numbers):\n");
 
                     //Start a temp int variable for counting index of songs
                     int songCount = 0;
-
+                    System.out.print("-----------------------------------------------------\n");
                     //Loop through list of songs and output index + song name. e.g (1 Friday)
                     for (addSong song : songList) {
                         songCount++;
                         System.out.print(Integer.toString(songCount)+" "+song.returnName()+"\n");
+                    }
+                    System.out.print("-----------------------------------------------------\n");
+
+                    //Try catch error handling as user error can occur
+                    try {
+                        //Take user input as int
+                        int removalID = Integer.parseInt(scanner.nextLine());
+
+                        //Check if song is in the list of songs
+                        if(songList.size() < removalID) {
+                            songList.remove(removalID);
+                        }
+
+                    }
+                    catch (Exception e) {
+                        System.out.print("Something went wrong, please re-select the option and try again.\n");
                     }
                     break;
 
