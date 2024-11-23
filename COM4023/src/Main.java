@@ -27,8 +27,11 @@ public class Main {
             String option = scanner.nextLine();
             //1, add file, 2, remove song, 3, print list of all songs, 4, print list of all songs ranked on number of plays
             switch (option) {
+                //Case 1 (Add file)
                 case "1":
+                    //Error handling try catch
                     try {
+                        //Read User Input
                         System.out.print("Please enter the song name you'd like to add: ");
                         String songName = scanner.nextLine();
                         System.out.print("Please enter the artist name: ");
@@ -36,23 +39,37 @@ public class Main {
                         System.out.print("Please enter the song plays (in number): ");
                         int songPlays = Integer.parseInt(scanner.nextLine());
 
+                        //Add data to the list (first create a object)
                         songList.add(new addSong(songName,artistName,songPlays));
                         System.out.print("Song Successfully added!\n");
                     }
+                    //If something goes wrong
                     catch (Exception e) {
                         System.out.print("Something went wrong, please try again. Select the option again\n");
                     }
-
+                    break;
+                //Case 2 (Remove file)
                 case "2":
-                    System.out.print("Please enter the song name you'd like to remove: ");
+                    //Read user input after showing list of all entries
+                    System.out.print("Please enter the song name you'd like to remove:\n");
+                    int songCount = 0;
+                    for (addSong song : songList) {
+                        songCount++;
+                        System.out.print(Integer.toString(songCount)+" "+song.returnName()+"\n");
+                    }
+                    break;
 
                 case "3":
-                    for (item in songList.size()) {
-                        System.out.print(song+"\n");
+                    System.out.print("-----------------------------------------------------\n");
+                    for (addSong song : songList) {
+                        System.out.print(song.returnName()+"\n");
                     }
+                    System.out.print("-----------------------------------------------------\n");
+                    break;
 
                 case "4":
                     System.out.print("Please enter the song name you'd like to remove: ");
+                    break;
             }
         }
 
