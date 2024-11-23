@@ -52,21 +52,28 @@ public class Main {
                 case "2":
                     //Read user input after showing list of all entries
                     System.out.print("Please enter the song name you'd like to remove:\n");
+
+                    //Start a temp int variable for counting index of songs
                     int songCount = 0;
+
+                    //Loop through list of songs and output index + song name. e.g (1 Friday)
                     for (addSong song : songList) {
                         songCount++;
                         System.out.print(Integer.toString(songCount)+" "+song.returnName()+"\n");
                     }
                     break;
 
+                //Case 3 (Show all songs saved in list)
                 case "3":
                     System.out.print("-----------------------------------------------------\n");
+                    //Loop through list of songs and output song name. e.g (Friday)
                     for (addSong song : songList) {
                         System.out.print(song.returnName()+"\n");
                     }
                     System.out.print("-----------------------------------------------------\n");
                     break;
 
+                //Case 4 (Show all songs saved in list ranked by play count)
                 case "4":
                     System.out.print("Please enter the song name you'd like to remove: ");
                     break;
