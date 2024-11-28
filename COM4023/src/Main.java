@@ -25,7 +25,7 @@ public class Main {
         while (true) {
             System.out.print("Please enter the option you would like to use: ");
             String option = scanner.nextLine();
-            //1, add file, 2, remove song, 3, print list of all songs, 4, print list of all songs ranked on number of plays
+            //1, add file, 2, remove song, 3, print list of all songs, 4, print list of all songs ranked on number of plays, 5 exit
             switch (option) {
                 //Case 1 (Add file)
                 case "1":
@@ -89,10 +89,30 @@ public class Main {
                     System.out.print("-----------------------------------------------------\n");
                     break;
 
-                //Case 4 (Show all songs saved in list ranked by play count)
+                //Case 4 (print list of all songs ranked on number of plays)
                 case "4":
-                    System.out.print("Please enter the song name you'd like to remove: ");
+                    // Create a copy of the song list to sort
+                    ArrayList<addSong> sortedList = new ArrayList<>(songList);
+
+                    // Sort the list in descending order of plays
+                    sortedList.sort((song1, song2) -> Integer.compare(song2.returnPlayCount(), song1.returnPlayCount()));
+
+                    // Print the sorted list
+                    System.out.print("-----------------------------------------------------\n");
+                    System.out.print("Songs ranked by number of plays:\n");
+                    for (addSong song : sortedList) {
+                        System.out.print(song.returnName() + " - " + song.returnPlayCount() + " (" + song.returnPlayCount() + " plays)\n");
+                    }
+                    System.out.print("-----------------------------------------------------\n");
                     break;
+
+                // Case 5 (Exit)
+                case "5":
+                    System.out.print("Exiting the Music Player. Thank you for using the application!\n");
+                    scanner.close(); // Close the Scanner to release resources
+                    System.exit(0); // Exit the program
+                    break;
+
             }
         }
 
